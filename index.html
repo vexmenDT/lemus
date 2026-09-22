@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi querida Eva | De todo corazón Lemus</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --autumn-gold: #f59e0b;
+            --autumn-amber: #d97706;
+            --autumn-red: #991b1b;
+            --mirror-border: rgba(255, 255, 255, 0.4);
+            --mirror-bg: rgba(20, 12, 8, 0.55);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0c0704;
+            color: #fef3c7;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-great-vibes { font-family: 'Great Vibes', cursive; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+
+        /* Autumn Background with realistic photography + warm golden sunset glow */
+        .autumn-mirror-bg {
+            background-image: 
+                linear-gradient(to bottom, rgba(18, 10, 7, 0.42), rgba(17, 8, 5, 0.82)),
+                radial-gradient(ellipse at 50% 48%, rgba(245, 158, 11, 0.2), transparent 48%),
+                url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=90');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .autumn-mirror-bg::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent 44%, rgba(245, 158, 11, 0.12) 50%, rgba(12, 7, 4, 0.4) 58%, rgba(12, 7, 4, 0.72) 100%);
+            mix-blend-mode: screen;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        /* Glassmorphism Mirror Effect */
+        .glass-mirror {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
+            border: 1px solid var(--mirror-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                        inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+                        0 0 20px rgba(245, 158, 11, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Specular Mirror Reflection Sweep Animation */
+        .glass-mirror::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(255, 255, 255, 0.15) 47%,
+                rgba(255, 255, 255, 0.45) 50%,
+                rgba(255, 255, 255, 0.15) 53%,
+                transparent 60%
+            );
+            transform: rotate(28deg);
+            animation: mirrorReflection 7s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes mirrorReflection {
+            0% { transform: translateY(-100%) rotate(28deg); }
+            25% { transform: translateY(100%) rotate(28deg); }
+            100% { transform: translateY(100%) rotate(28deg); }
+        }
+
+        /* Wind Swaying Animation for Corner Flowers */
+        @keyframes windSwayLeft {
+            0%, 100% { transform: rotate(-2deg) translateX(0); }
+            35% { transform: rotate(3deg) translateX(4px); }
+            70% { transform: rotate(-4deg) translateX(-3px); }
+        }
+
+        @keyframes windSwayRight {
+            0%, 100% { transform: rotate(2deg) translateX(0); }
+            40% { transform: rotate(-3deg) translateX(-4px); }
+            75% { transform: rotate(4deg) translateX(3px); }
+        }
+
+        .flower-wind-left {
+            transform-origin: bottom left;
+            animation: windSwayLeft 6.5s infinite ease-in-out;
+        }
+
+        .flower-wind-right {
+            transform-origin: bottom right;
+            animation: windSwayRight 7.2s infinite ease-in-out;
+        }
+
+        .photo-flower-corner {
+            width: min(31vw, 390px) !important;
+            height: min(48vw, 520px) !important;
+            padding: 0 !important;
+            overflow: visible;
+            filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45));
+        }
+
+        .photo-flower-corner > svg { display: none; }
+
+        .photo-flower-corner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12%;
+            width: 75%;
+            height: 9%;
+            background: radial-gradient(ellipse, rgba(0, 0, 0, 0.5), transparent 70%);
+            opacity: 0.65;
+            pointer-events: none;
+        }
+
+        .photo-flower {
+            position: absolute;
+            object-fit: contain;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            -webkit-mask-image: none;
+            mask-image: none;
+            filter: drop-shadow(0 8px 7px rgba(0, 0, 0, 0.4));
+        }
+
+        .photo-flower.rose,
+        .photo-flower.small-rose,
+        .photo-flower.extra-rose { mix-blend-mode: screen; filter: drop-shadow(0 8px 7px rgba(0, 0, 0, 0.42)); }
+        .photo-flower.rose { width: 62%; height: 70%; bottom: 0; top: auto; left: 2%; transform: rotate(-8deg); }
+        .photo-flower.sunflower { width: 62%; height: 74%; bottom: -2%; top: auto; left: 38%; transform: rotate(7deg); }
+        .photo-flower.small-rose { width: 48%; height: 58%; bottom: -2%; top: auto; left: -8%; transform: rotate(5deg); }
+        .photo-flower.extra-rose { width: 39%; height: 49%; bottom: -2%; top: auto; left: 20%; transform: rotate(-3deg); }
+        .photo-flower.extra-rose-two { width: 34%; height: 44%; bottom: -1%; top: auto; left: 53%; transform: rotate(10deg); }
+        .photo-flower.high-rose { width: 40%; height: 48%; top: -34%; bottom: auto; left: 18%; transform: rotate(-12deg); }
+        .photo-flower.mid-rose { width: 34%; height: 42%; top: -8%; bottom: auto; left: 62%; transform: rotate(11deg); }
+        .photo-flower-corner.right .rose { bottom: 0; top: auto; left: 27%; transform: rotate(8deg); }
+        .photo-flower-corner.right .sunflower { bottom: -2%; top: auto; left: -6%; transform: rotate(-7deg); }
+        .photo-flower-corner.right .small-rose { bottom: -2%; top: auto; left: 52%; transform: rotate(-5deg); }
+        .photo-flower-corner.right .extra-rose { bottom: -2%; top: auto; left: 27%; transform: rotate(3deg); }
+        .photo-flower-corner.right .extra-rose-two { bottom: -1%; top: auto; left: -6%; transform: rotate(-10deg); }
+        .photo-flower-corner.right .high-rose { top: -28%; bottom: auto; left: 42%; transform: rotate(12deg); }
+        .photo-flower-corner.right .mid-rose { top: -5%; bottom: auto; left: -8%; transform: rotate(-11deg); }
+
+        @media (max-width: 640px) {
+            .photo-flower-corner {
+                width: 46vw !important;
+                height: 58vw !important;
+            }
+        }
+
+        /* 3D Interactive Envelope Styling */
+        .envelope-wrapper {
+            perspective: 1200px;
+        }
+
+        .envelope-card {
+            width: 320px;
+            height: 220px;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+        }
+
+        @media (min-width: 640px) {
+            .envelope-card {
+                width: 380px;
+                height: 250px;
+            }
+        }
+
+        .envelope-card:hover {
+            transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.5);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 130px solid rgba(180, 83, 9, 0.95);
+            transform-origin: top center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 4;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        @media (min-width: 640px) {
+            .envelope-flap {
+                border-left-width: 190px;
+                border-right-width: 190px;
+                border-top-width: 150px;
+            }
+        }
+
+        .envelope-card.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(120, 53, 15, 0.9), rgba(69, 26, 3, 0.95));
+            border-radius: 16px;
+            border: 1.5px solid rgba(251, 191, 36, 0.4);
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .wax-seal {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: radial-gradient(circle, #dc2626 30%, #7f1d1d 90%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fef08a;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.4);
+            border: 2px dashed rgba(253, 224, 71, 0.7);
+            z-index: 5;
+            transition: all 0.6s ease;
+        }
+
+        @media (min-width: 640px) {
+            .wax-seal { top: 125px; }
+        }
+
+        .envelope-card.open .wax-seal {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.3) rotate(180deg);
+        }
+
+        /* Custom Scrollbar for Letter Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(245, 158, 11, 0.5);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(251, 191, 36, 0.8);
+        }
+
+        /* Pulse Equalizer Bars */
+        .eq-bar {
+            width: 3px;
+            background-color: #f59e0b;
+            border-radius: 3px;
+            animation: eqDance 1.2s infinite ease-in-out alternate;
+        }
+        .eq-bar:nth-child(1) { height: 12px; animation-delay: 0.1s; }
+        .eq-bar:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+        .eq-bar:nth-child(3) { height: 8px;  animation-delay: 0.2s; }
+        .eq-bar:nth-child(4) { height: 15px; animation-delay: 0.4s; }
+
+        @keyframes eqDance {
+            0% { transform: scaleY(0.3); }
+            100% { transform: scaleY(1.2); }
+        }
+
+        /* Canvas Wind Stream Layer */
+        #windCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #youtubePlayer {
+            position: fixed;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        #welcomeScreen {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: linear-gradient(rgba(15, 8, 4, 0.72), rgba(15, 8, 4, 0.86)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=90') center/cover;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+
+        #welcomeScreen.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            max-width: 420px;
+            text-align: center;
+            color: #fef3c7;
+        }
+
+        .welcome-play {
+            width: 88px;
+            height: 88px;
+            margin: 28px auto 0;
+            border: 1px solid rgba(254, 243, 199, 0.7);
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fbbf24, #b45309);
+            color: #451a03;
+            font-size: 28px;
+            box-shadow: 0 0 0 10px rgba(251, 191, 36, 0.12), 0 16px 35px rgba(0, 0, 0, 0.45);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .welcome-play:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 14px rgba(251, 191, 36, 0.16), 0 20px 40px rgba(0, 0, 0, 0.55);
+        }
+    </style>
+</head>
+<body class="autumn-mirror-bg min-h-screen flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-amber-500 selection:text-black">
+
+    <!-- Interactive Canvas for Wind Windblown Petals & Leaves -->
+    <canvas id="windCanvas"></canvas>
+    <div id="youtubePlayer" aria-hidden="true"></div>
+
+    <div id="welcomeScreen">
+        <div class="welcome-content">
+            <p class="font-dancing text-3xl sm:text-4xl">Un detalle especial para ti</p>
+            <p class="font-playfair text-xs sm:text-sm tracking-widest uppercase text-amber-200/80 mt-3">Pulsa play para comenzar</p>
+            <button class="welcome-play" type="button" onclick="enterLoveExperience()" aria-label="Reproducir y entrar">
+                <i class="fa-solid fa-play ml-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- TOP NAVBAR: Music Controller with Los Panchos "Contigo" Dedication -->
+    <header class="w-full max-w-5xl mx-auto p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center gap-4 z-20">
+        
+        <!-- Romantic Emblem -->
+        <div class="glass-mirror px-5 py-2.5 rounded-full flex items-center space-x-3 border border-amber-400/30">
+            <span class="text-amber-400 animate-pulse text-lg"><i class="fa-solid fa-heart"></i></span>
+            <div class="flex flex-col text-left">
+                <span class="font-playfair text-xs tracking-widest text-amber-100 uppercase font-bold">Eva & Lemus</span>
+                <span class="text-[10px] text-amber-300/80 font-dancing">Amor Eterno en Otoño</span>
+            </div>
+        </div>
+
+        <!-- Los Panchos - Contigo Dedicated Player Widget -->
+        <div class="glass-mirror px-4 py-2.5 rounded-full flex items-center space-x-3 border border-amber-400/30">
+            <button id="playMusicBtn" onclick="toggleBoleroMusic()" class="flex items-center space-x-3 text-amber-200 hover:text-amber-300 transition-all focus:outline-none group">
+                <div id="musicCircleIcon" class="w-9 h-9 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 flex items-center justify-center text-amber-950 shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-play ml-0.5 text-sm" id="mainPlayIcon"></i>
+                </div>
+                <div class="text-left flex flex-col">
+                    <span class="text-xs font-semibold text-amber-100 flex items-center gap-1.5">
+                        <span>Los Panchos — Contigo</span>
+                        <div id="eqContainer" class="hidden flex items-center space-x-0.5 ml-1">
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                        </div>
+                    </span>
+                    <span id="musicStateSubtitle" class="text-[10px] text-amber-300/80">Toca para escuchar música</span>
+                </div>
+            </button>
+            <div class="h-6 w-[1px] bg-amber-500/30 hidden sm:block"></div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.75" oninput="changeVolume(this.value)" class="w-16 accent-amber-400 cursor-pointer hidden sm:block" title="Volumen">
+        </div>
+    </header>
+
+    <!-- MAIN HERO CONTENT -->
+    <main class="w-full max-w-4xl flex-1 flex flex-col justify-center items-center p-4 z-20 text-center my-auto">
+        
+        <!-- Romantic Subtitle Badge -->
+        <div class="mb-4 inline-block">
+            <span class="glass-mirror px-6 py-2 rounded-full text-xs sm:text-sm font-playfair text-amber-200 tracking-widest uppercase border border-amber-300/40 shadow-xl flex items-center gap-2">
+                <i class="fa-solid fa-wind text-amber-400 animate-pulse"></i>
+                <span>Un Detalle Especial Para Ti</span>
+                <i class="fa-solid fa-leaf text-amber-400"></i>
+            </span>
+        </div>
+
+        <h1 class="font-great-vibes text-6xl sm:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 drop-shadow-lg mb-2">
+            Eva
+        </h1>
+
+        <p class="font-dancing text-2xl sm:text-3xl text-amber-100/90 max-w-lg mb-8 leading-relaxed">
+            Abre esta carta que lleva guardado todo mi amor...
+        </p>
+
+        <!-- 3D Envelope Container -->
+        <div class="envelope-wrapper my-2">
+            <div id="envelopeCard" class="envelope-card glass-mirror flex items-center justify-center rounded-2xl" onclick="openLoveLetter()">
+                
+                <!-- Envelope Flap -->
+                <div class="envelope-flap"></div>
+                
+                <!-- Envelope Pocket -->
+                <div class="envelope-pocket flex flex-col items-center justify-center p-4">
+                    <!-- Subtle floral watermark inside pocket -->
+                    <div class="opacity-15 text-amber-200 text-6xl mb-2">
+                        <i class="fa-solid fa-rose"></i>
+                    </div>
+                    <span class="font-playfair text-amber-200/90 text-sm tracking-widest uppercase font-bold z-10">
+                        Para Eva
+                    </span>
+                    <span class="font-dancing text-amber-300/80 text-xs mt-1 z-10">
+                        De todo corazón Lemus
+                    </span>
+                </div>
+
+                <!-- Wax Seal -->
+                <div class="wax-seal">
+                    <div class="flex flex-col items-center justify-center text-center">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                        <span class="text-[9px] font-bold font-playfair tracking-tight uppercase">Eva</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Trigger Button -->
+        <button onclick="openLoveLetter()" class="mt-8 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-amber-950 font-bold font-playfair text-xs sm:text-sm tracking-wider uppercase shadow-2xl hover:shadow-amber-500/40 transition-all transform hover:-translate-y-1 border border-amber-200/50 flex items-center space-x-3">
+            <i class="fa-solid fa-envelope-open-text text-base"></i>
+            <span>Abrir Carta de Amor</span>
+        </button>
+
+    </main>
+
+    <!-- GLASSMORPHISM MIRROR LETTER MODAL -->
+    <div id="letterModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 pointer-events-none transition-all duration-700 bg-black/75 backdrop-blur-md">
+        
+        <!-- Glass Mirror Letter Box -->
+        <div id="letterBox" class="glass-mirror w-full max-w-2xl max-h-[90vh] flex flex-col rounded-3xl p-6 sm:p-10 relative transform scale-90 transition-all duration-500 border-2 border-amber-300/40">
+            
+            <!-- Close Modal Button -->
+            <button onclick="closeLoveLetter()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-amber-500/20 hover:bg-amber-500/40 border border-amber-300/40 text-amber-200 flex items-center justify-center transition-all z-30 focus:outline-none">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Letter Header -->
+            <div class="flex justify-between items-center border-b border-amber-500/30 pb-4 mb-4">
+                <div class="flex items-center space-x-2 text-amber-300 font-playfair text-xs tracking-widest uppercase font-semibold">
+                    <i class="fa-solid fa-leaf text-amber-400"></i>
+                    <span>Carta de Amor</span>
+                </div>
+                <div class="text-amber-200/90 text-sm font-dancing flex items-center gap-1.5">
+                    <i class="fa-solid fa-heart text-amber-400"></i>
+                    <span>Para Eva</span>
+                </div>
+            </div>
+
+            <!-- Scrollable Letter Body Text -->
+            <div class="overflow-y-auto custom-scrollbar pr-2 sm:pr-4 my-2 text-left space-y-6">
+                
+                <h2 class="font-great-vibes text-3xl sm:text-4xl text-amber-200 border-b border-amber-500/20 pb-2">
+                    Hola, mi querida Eva,
+                </h2>
+
+                <p class="font-dancing text-xl sm:text-2xl text-amber-100/95 leading-relaxed">
+                    solamente paso a recordarte con este detalle lo mucho que te amo y lo importante que eres para mí. Que no hay día que no me levante pensando en ti, y no hay noche que no me vaya a acostar pensando en ti.
+                </p>
+
+                <p class="font-dancing text-xl sm:text-2xl text-amber-100/95 leading-relaxed">
+                    La vida nos ha puesto muchas adversidades, pero yo siento que este amor es muy fuerte y que puede sobrepasarlas todas. Te agradezco cada detalle que has tenido conmigo, y espero que jamás olvides lo mucho que te amo y lo mucho que significas para mí.
+                </p>
+
+                <p class="font-dancing text-xl sm:text-2xl text-amber-100/95 leading-relaxed">
+                    A lo mejor ha habido peleas y todo, y es normal, pero sobre esas peleas siempre hay un amor más fuerte, que no importa el día ni la hora, siempre podrá con todo nosotros.
+                </p>
+
+                <p class="font-dancing text-xl sm:text-2xl text-amber-100/95 leading-relaxed">
+                    Solamente quería pasar a recordarte que te amo mucho, mi vida, y espero y te guste este detalle.
+                </p>
+
+                <div class="text-right pt-6 border-t border-amber-500/30">
+                    <p class="font-great-vibes text-3xl sm:text-4xl text-amber-300">
+                        Atte: De todo corazón Lemus.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer Controls -->
+            <div class="mt-4 pt-3 border-t border-amber-500/30 flex flex-wrap gap-3 justify-between items-center">
+                <button onclick="triggerPetalBurst()" class="px-5 py-2.5 rounded-full bg-amber-500/20 hover:bg-amber-500/40 text-amber-200 text-xs font-playfair tracking-wider border border-amber-400/40 transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-heart text-amber-400"></i>
+                    <span>Lluvia de Flores</span>
+                </button>
+                <button onclick="closeLoveLetter()" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-amber-950 font-bold font-playfair text-xs tracking-wider transition-all shadow-lg">
+                    Cerrar Carta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CORNER BOTANICAL ARTWORK: Yellow Flowers & Elegant White Roses with Wind Physics -->
+    <!-- Bottom Left Corner Flowers -->
+    <div class="fixed bottom-0 left-0 z-10 pointer-events-none w-52 sm:w-72 md:w-96 h-auto p-2 opacity-95 flower-wind-left photo-flower-corner left">
+        <img class="photo-flower rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas reales">
+        <img class="photo-flower sunflower" src="https://pngimg.com/uploads/sunflower/sunflower_PNG13389.png" alt="Girasol completo con fondo transparente">
+        <img class="photo-flower small-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas reales">
+        <img class="photo-flower extra-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas adicionales">
+        <img class="photo-flower extra-rose-two" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas adicionales">
+        <img class="photo-flower high-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosa blanca elevada">
+        <img class="photo-flower mid-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosa blanca lateral">
+        <svg viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+            <defs>
+                <radialGradient id="sunflowerRight" cx="35%" cy="28%" r="75%">
+                    <stop offset="0" stop-color="#fff3a3"/>
+                    <stop offset="0.55" stop-color="#fbbf24"/>
+                    <stop offset="1" stop-color="#b45309"/>
+                </radialGradient>
+                <radialGradient id="whiteRoseRight" cx="35%" cy="25%" r="78%">
+                    <stop offset="0" stop-color="#ffffff"/>
+                    <stop offset="0.62" stop-color="#f4f1e9"/>
+                    <stop offset="1" stop-color="#b8afa2"/>
+                </radialGradient>
+                <filter id="flowerShadowRight" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                    <feOffset dy="4" result="offset"/>
+                    <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <defs>
+                <radialGradient id="whiteRoseLeft" cx="38%" cy="28%" r="75%">
+                    <stop offset="0" stop-color="#fffdf7"/>
+                    <stop offset="0.62" stop-color="#f8f5ed"/>
+                    <stop offset="1" stop-color="#c9c0b2"/>
+                </radialGradient>
+                <radialGradient id="sunflowerLeft" cx="35%" cy="30%" r="75%">
+                    <stop offset="0" stop-color="#fff3a3"/>
+                    <stop offset="0.55" stop-color="#fbbf24"/>
+                    <stop offset="1" stop-color="#b45309"/>
+                </radialGradient>
+                <filter id="flowerShadowLeft" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                    <feOffset dy="4" result="offset"/>
+                    <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <!-- Stems -->
+            <path d="M 50 420 Q 90 260 120 140" stroke="#38541c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 130 420 Q 160 290 190 190" stroke="#2c4215" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 200 420 Q 210 320 250 240" stroke="#223510" stroke-width="6" stroke-linecap="round"/>
+
+            <!-- Autumn Leaves on Stems -->
+            <path d="M 80 320 Q 30 290 45 260 Q 80 280 80 320 Z" fill="#d97706"/>
+            <path d="M 110 230 Q 160 210 140 170 Q 100 190 110 230 Z" fill="#b45309"/>
+            <path d="M 170 300 Q 220 280 200 240 Q 160 260 170 300 Z" fill="#78350f"/>
+
+            <!-- REALISTIC WHITE ROSE 1 (Top Left) -->
+            <g transform="translate(120, 140)" filter="url(#flowerShadowLeft)">
+                <!-- Outer Petals (Soft White with Cream Gradient & Shading) -->
+                <path d="M 0 -45 C 25 -45 45 -25 45 0 C 45 25 25 45 0 45 C -25 45 -45 25 -45 0 C -45 -25 -25 -45 0 -45 Z" fill="url(#whiteRoseLeft)" opacity="0.98"/>
+                <path d="M -20 -35 C 10 -55 40 -35 35 -10 C 30 15 -10 35 -30 15 C -40 -5 -35 -25 -20 -35 Z" fill="#fffefa"/>
+                <!-- Layered Rose Petal Curves -->
+                <path d="M -35 -15 C -15 -40 25 -40 35 -15 C 40 10 15 35 -15 30 C -35 25 -40 5 -35 -15 Z" fill="#ded8ce" opacity="0.9"/>
+                <path d="M -27 10 C -15 35 14 40 30 17 C 17 26 -7 24 -27 10 Z" fill="#b8aea0" opacity="0.38"/>
+                <path d="M -20 -20 C 0 -30 20 -20 25 0 C 20 20 -10 25 -20 10 C -25 -5 -20 -15 -20 -20 Z" fill="#fef08a" opacity="0.4"/>
+                <path d="M -10 -10 C 0 -18 12 -10 12 0 C 10 12 -5 12 -10 5 Z" fill="#fef3c7"/>
+                <!-- Center Amber Touch -->
+                <circle cx="0" cy="0" r="6" fill="#f59e0b" opacity="0.7"/>
+            </g>
+
+            <!-- VIBRANT YELLOW FLOWER / SUNFLOWER 1 -->
+            <g transform="translate(190, 190)" filter="url(#flowerShadowLeft)">
+                <!-- Golden Yellow Radial Petals -->
+                <g fill="url(#sunflowerLeft)" stroke="#d97706" stroke-width="1">
+                    <ellipse cx="0" cy="-42" rx="12" ry="30" />
+                    <ellipse cx="0" cy="42" rx="12" ry="30" />
+                    <ellipse cx="-42" cy="0" rx="30" ry="12" />
+                    <ellipse cx="42" cy="0" rx="30" ry="12" />
+                    <ellipse cx="-30" cy="-30" rx="12" ry="30" transform="rotate(-45 -30 -30)" />
+                    <ellipse cx="30" cy="30" rx="12" ry="30" transform="rotate(-45 30 30)" />
+                    <ellipse cx="-30" cy="30" rx="12" ry="30" transform="rotate(45 -30 30)" />
+                    <ellipse cx="30" cy="-30" rx="12" ry="30" transform="rotate(45 30 -30)" />
+                </g>
+                <!-- Inner Bright Yellow Layer -->
+                <g fill="#fde047">
+                    <circle cx="0" cy="-34" r="8"/>
+                    <circle cx="0" cy="34" r="8"/>
+                    <circle cx="-34" cy="0" r="8"/>
+                    <circle cx="34" cy="0" r="8"/>
+                </g>
+                <!-- Sunflower Heart -->
+                <circle cx="0" cy="0" r="22" fill="#451a03" stroke="#78350f" stroke-width="3"/>
+                <circle cx="0" cy="0" r="16" fill="#290f02"/>
+                <circle cx="-7" cy="-7" r="2" fill="#b45309"/><circle cx="7" cy="-4" r="2" fill="#92400e"/><circle cx="3" cy="8" r="2" fill="#b45309"/>
+            </g>
+
+            <!-- ELEGANT WHITE ROSE 2 (Lower Right) -->
+            <g transform="translate(250, 240)">
+                <circle cx="0" cy="0" r="32" fill="#f5f5f4"/>
+                <path d="M -25 -10 C -10 -30 20 -30 25 -5 C 20 20 -10 25 -25 5 Z" fill="#ffffff"/>
+                <path d="M -15 -15 C 0 -22 15 -15 15 0 C 10 15 -10 15 -15 0 Z" fill="#fef9c3" opacity="0.8"/>
+                <circle cx="0" cy="0" r="7" fill="#fbbf24"/>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Bottom Right Corner Flowers -->
+    <div class="fixed bottom-0 right-0 z-10 pointer-events-none w-52 sm:w-72 md:w-96 h-auto p-2 opacity-95 flower-wind-right photo-flower-corner right">
+        <img class="photo-flower rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas reales">
+        <img class="photo-flower sunflower" src="https://pngimg.com/uploads/sunflower/sunflower_PNG13389.png" alt="Girasol completo con fondo transparente">
+        <img class="photo-flower small-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas reales">
+        <img class="photo-flower extra-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas adicionales">
+        <img class="photo-flower extra-rose-two" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosas blancas adicionales">
+        <img class="photo-flower high-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosa blanca elevada">
+        <img class="photo-flower mid-rose" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUD_rNwB1kcd7LwRQxSikaJAj1DZRFHiUuSOCcxhZsjA&s=10" alt="Rosa blanca lateral">
+        <svg viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+            <!-- Stems -->
+            <path d="M 270 420 Q 230 270 200 150" stroke="#38541c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 190 420 Q 160 300 130 200" stroke="#2c4215" stroke-width="7" stroke-linecap="round"/>
+
+            <!-- Autumn Leaves -->
+            <path d="M 240 330 Q 290 300 270 270 Q 230 290 240 330 Z" fill="#d97706"/>
+            <path d="M 210 240 Q 160 220 180 180 Q 220 200 210 240 Z" fill="#991b1b"/>
+
+            <!-- VIBRANT YELLOW ROSE / FLOWER (Top Right) -->
+            <g transform="translate(200, 150)" filter="url(#flowerShadowRight)">
+                <g fill="url(#sunflowerRight)" stroke="#d97706" stroke-width="1.5">
+                    <circle cx="0" cy="-30" r="14" />
+                    <circle cx="0" cy="30" r="14" />
+                    <circle cx="-30" cy="0" r="14" />
+                    <circle cx="30" cy="0" r="14" />
+                    <circle cx="-20" cy="-20" r="14" />
+                    <circle cx="20" cy="20" r="14" />
+                    <circle cx="-20" cy="20" r="14" />
+                    <circle cx="20" cy="-20" r="14" />
+                </g>
+                <circle cx="0" cy="0" r="18" fill="#f59e0b"/>
+                <circle cx="0" cy="0" r="12" fill="#78350f"/>
+                <circle cx="-5" cy="-4" r="1.8" fill="#f59e0b"/><circle cx="5" cy="-2" r="1.8" fill="#451a03"/><circle cx="2" cy="5" r="1.8" fill="#f59e0b"/>
+            </g>
+
+            <!-- REALISTIC WHITE ROSE (Lower Left) -->
+            <g transform="translate(130, 200)" filter="url(#flowerShadowRight)">
+                <path d="M 0 -40 C 22 -40 40 -22 40 0 C 40 22 22 40 0 40 C -22 40 -40 22 -40 0 C -40 -22 -22 -40 0 -40 Z" fill="url(#whiteRoseRight)" opacity="0.98"/>
+                <path d="M -18 -28 C 8 -42 32 -28 28 -8 C 24 12 -8 28 -24 12 C -32 -4 -28 -20 -18 -28 Z" fill="#f5f5f4"/>
+                <path d="M -15 -15 C 0 -25 18 -15 18 2 C 12 18 -12 18 -18 2 Z" fill="#fef08a" opacity="0.6"/>
+                <path d="M -26 12 C -10 35 16 34 29 13 C 13 23 -7 23 -26 12 Z" fill="#aaa094" opacity="0.4"/>
+                <circle cx="0" cy="0" r="6" fill="#f59e0b"/>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+        /**
+         * Web Audio API Synthesizer for "Contigo" - Trio Los Panchos Style
+         * Synthesizes a warm acoustic guitar bolero accompaniment with strummed chords
+         * and the iconic melodic lead of "Contigo"! Guaranteed compatibility on Chrome & Safari iOS/Desktop.
+         */
+        let audioCtx = null;
+        let isPlayingMusic = false;
+        let boleroInterval = null;
+        let masterGainNode = null;
+        let defaultMusicPending = true;
+        let youtubePlayer = null;
+        let youtubeReady = false;
+        const youtubeVideoId = 'F1COh7t3el4';
+
+        function onYouTubeIframeAPIReady() {
+            youtubePlayer = new YT.Player('youtubePlayer', {
+                height: '1',
+                width: '1',
+                videoId: youtubeVideoId,
+                playerVars: { autoplay: 0, controls: 0, rel: 0, playsinline: 1, origin: window.location.origin },
+                events: {
+                    onReady: event => {
+                        youtubeReady = true;
+                        event.target.getIframe().setAttribute('allow', 'autoplay; encrypted-media');
+                    },
+                    onStateChange: event => {
+                        if (event.data === YT.PlayerState.ENDED) stopBoleroMusic();
+                    }
+                }
+            });
+        }
+
+        // "Contigo" (Trio Los Panchos) Key of C Major / A Minor Chord progression & Melody frequencies
+        // Chords: C Major, A Minor, D Minor, G7
+        const chordProgressions = [
+            // C Major chord (C3, G3, C4, E4, G4)
+            [130.81, 196.00, 261.63, 329.63, 392.00],
+            // A Minor chord (A2, E3, A3, C4, E4)
+            [110.00, 164.81, 220.00, 261.63, 329.63],
+            // D Minor chord (D3, A3, D4, F4, A4)
+            [146.83, 220.00, 293.66, 349.23, 440.00],
+            // G7 chord (G2, D3, F3, B3, D4)
+            [98.00, 146.83, 174.61, 246.94, 293.66]
+        ];
+
+        // Lead Melody notes for "Contigo" (approximate pitch sequence)
+        const contigoMelody = [
+            329.63, 349.23, 392.00, 440.00, 392.00, 329.63, 261.63, // "Tus besos se quedaron..."
+            293.66, 329.63, 349.23, 392.00, 349.23, 293.66, 220.00,
+            261.63, 293.66, 329.63, 349.23, 329.63, 261.63, 196.00,
+            246.94, 261.63, 293.66, 329.63, 293.66, 246.94, 261.63
+        ];
+
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+                masterGainNode = audioCtx.createGain();
+                masterGainNode.gain.value = parseFloat(document.getElementById('volumeSlider').value);
+                masterGainNode.connect(audioCtx.destination);
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Pluck or strum nylon acoustic guitar tone
+        function playGuitarTone(freq, type = 'bass', duration = 1.8) {
+            if (!audioCtx || !isPlayingMusic) return;
+
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                const filter = audioCtx.createBiquadFilter();
+
+                // Warm guitar timbre: triangle oscillator + lowpass filter envelope
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now);
+
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(type === 'bass' ? 600 : 1800, now);
+                filter.frequency.exponentialRampToValueAtTime(200, now + duration);
+
+                if (type === 'bass') {
+                    gain.gain.setValueAtTime(0, now);
+                    gain.gain.linearRampToValueAtTime(0.35, now + 0.03);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+                } else if (type === 'lead') {
+                    gain.gain.setValueAtTime(0, now);
+                    gain.gain.linearRampToValueAtTime(0.25, now + 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + duration * 1.2);
+                } else {
+                    // Strummed Chord Note
+                    gain.gain.setValueAtTime(0, now);
+                    gain.gain.linearRampToValueAtTime(0.12, now + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + duration * 0.8);
+                }
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(masterGainNode);
+
+                osc.start(now);
+                osc.stop(now + duration * 1.2);
+            } catch (e) {
+                console.warn('Audio playback info:', e);
+            }
+        }
+
+        function startBoleroMusic() {
+            initAudioContext();
+            if (isPlayingMusic) return;
+            isPlayingMusic = true;
+
+            document.getElementById('musicStateSubtitle').innerText = 'Reproduciendo Bolero...';
+            document.getElementById('mainPlayIcon').className = 'fa-solid fa-pause ml-0';
+            document.getElementById('eqContainer').classList.remove('hidden');
+
+            if (youtubeReady && window.location.protocol !== 'file:') {
+                document.getElementById('musicStateSubtitle').innerText = 'Reproduciendo Contigo...';
+                youtubePlayer.setVolume(parseFloat(document.getElementById('volumeSlider').value) * 100);
+                youtubePlayer.playVideo();
+                return;
+            }
+
+            isPlayingMusic = false;
+            document.getElementById('musicStateSubtitle').innerText = window.location.protocol === 'file:'
+                ? 'Abre con Live Server para reproducir YouTube'
+                : 'Cargando canción de YouTube...';
+            document.getElementById('mainPlayIcon').className = 'fa-solid fa-play ml-0.5';
+            document.getElementById('eqContainer').classList.add('hidden');
+            return;
+
+            let beat = 0;
+            let chordIndex = 0;
+            let melodyIndex = 0;
+
+            // Bolero Rhythm (4/4 time signature at ~80 BPM -> 375ms per eighth note)
+            boleroInterval = setInterval(() => {
+                if (!isPlayingMusic) return;
+
+                const currentChord = chordProgressions[chordIndex % chordProgressions.length];
+
+                // Beat 1: Bass pluck
+                if (beat % 8 === 0) {
+                    playGuitarTone(currentChord[0], 'bass', 1.8);
+                }
+                // Beat 2: Warm guitar strum
+                else if (beat % 8 === 2 || beat % 8 === 3) {
+                    currentChord.slice(1).forEach((note, idx) => {
+                        setTimeout(() => playGuitarTone(note, 'strum', 1.0), idx * 15);
+                    });
+                }
+                // Beat 3: Bass accent
+                else if (beat % 8 === 4) {
+                    playGuitarTone(currentChord[1], 'bass', 1.2);
+                }
+                // Beat 4: Strum
+                else if (beat % 8 === 6) {
+                    currentChord.slice(1).forEach((note, idx) => {
+                        setTimeout(() => playGuitarTone(note, 'strum', 1.0), idx * 15);
+                    });
+                }
+
+                // Lead Requinto / Vocal Melody ("Contigo" motif)
+                if (beat % 2 === 0 && Math.random() > 0.15) {
+                    const melodyNote = contigoMelody[melodyIndex % contigoMelody.length];
+                    playGuitarTone(melodyNote, 'lead', 1.5);
+                    melodyIndex++;
+                }
+
+                beat++;
+                if (beat % 16 === 0) {
+                    chordIndex++;
+                }
+            }, 375);
+        }
+
+        function stopBoleroMusic() {
+            isPlayingMusic = false;
+            if (boleroInterval) clearInterval(boleroInterval);
+            if (youtubeReady) youtubePlayer.pauseVideo();
+            document.getElementById('musicStateSubtitle').innerText = 'Toca para escuchar música';
+            document.getElementById('mainPlayIcon').className = 'fa-solid fa-play ml-0.5';
+            document.getElementById('eqContainer').classList.add('hidden');
+        }
+
+        function toggleBoleroMusic() {
+            if (isPlayingMusic) {
+                stopBoleroMusic();
+            } else {
+                defaultMusicPending = false;
+                startBoleroMusic();
+            }
+        }
+
+        function startDefaultMusicAfterGesture() {
+            initAudioContext();
+            if (defaultMusicPending && !isPlayingMusic) {
+                defaultMusicPending = false;
+                startBoleroMusic();
+            }
+        }
+
+        function enterLoveExperience() {
+            defaultMusicPending = false;
+            startBoleroMusic();
+            document.getElementById('welcomeScreen').classList.add('is-hidden');
+        }
+
+        function changeVolume(val) {
+            if (masterGainNode && audioCtx) {
+                masterGainNode.gain.setValueAtTime(parseFloat(val), audioCtx.currentTime);
+            }
+            if (youtubeReady) youtubePlayer.setVolume(parseFloat(val) * 100);
+        }
+
+        /**
+         * Dynamic Wind Physics Canvas ("Animación de Aire")
+         * Drifts yellow petals, white rose petals, and golden autumn leaves across the screen
+         */
+        const canvas = document.getElementById('windCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class WindParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = -20;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 12 + 8;
+                this.speedX = Math.random() * 2.5 + 1.2;
+                this.speedY = Math.random() * 1.2 - 0.4;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 2 - 1;
+                this.oscillationSpeed = Math.random() * 0.03 + 0.01;
+                this.oscillationAmp = Math.random() * 1.5 + 0.5;
+                this.step = 0;
+
+                // Particle types: 0 = Yellow Petal, 1 = White Rose Petal, 2 = Autumn Leaf
+                const rand = Math.random();
+                if (rand < 0.45) {
+                    this.type = 0; // Yellow Flower Petal
+                    this.color = '#f59e0b';
+                } else if (rand < 0.75) {
+                    this.type = 1; // White Rose Petal
+                    this.color = '#fef08a';
+                } else {
+                    this.type = 2; // Golden Autumn Leaf
+                    this.color = '#d97706';
+                }
+            }
+
+            update() {
+                this.step += this.oscillationSpeed;
+                this.x += this.speedX;
+                this.y += this.speedY + Math.sin(this.step) * this.oscillationAmp;
+                this.rotation += this.rotationSpeed;
+
+                if (this.x > canvas.width + 30 || this.y > canvas.height + 30 || this.y < -30) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = 'rgba(245, 158, 11, 0.3)';
+
+                if (this.type === 0 || this.type === 1) {
+                    // Petal Shape
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    // Leaf Shape
+                    ctx.beginPath();
+                    ctx.moveTo(0, -this.size);
+                    ctx.quadraticCurveTo(this.size, 0, 0, this.size);
+                    ctx.quadraticCurveTo(-this.size, 0, 0, -this.size);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 35; i++) {
+            const p = new WindParticle();
+            p.x = Math.random() * canvas.width; // spread initially
+            particles.push(p);
+        }
+
+        function animateWind() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateWind);
+        }
+
+        // Open Envelope & Display Glass Mirror Letter
+        function openLoveLetter() {
+            startBoleroMusic();
+
+            const envelopeCard = document.getElementById('envelopeCard');
+            const modal = document.getElementById('letterModal');
+            const letterBox = document.getElementById('letterBox');
+
+            envelopeCard.classList.add('open');
+
+            triggerPetalBurst();
+
+            setTimeout(() => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+                letterBox.classList.remove('scale-90');
+                letterBox.classList.add('scale-100');
+            }, 550);
+        }
+
+        function closeLoveLetter() {
+            const modal = document.getElementById('letterModal');
+            const letterBox = document.getElementById('letterBox');
+            const envelopeCard = document.getElementById('envelopeCard');
+
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            letterBox.classList.remove('scale-100');
+            letterBox.classList.add('scale-90');
+
+            setTimeout(() => {
+                envelopeCard.classList.remove('open');
+            }, 600);
+        }
+
+        // Burst of yellow & white rose petals when opening
+        function triggerPetalBurst() {
+            const colors = ['#f59e0b', '#ffffff', '#fef08a', '#fbbf24', '#fef3c7'];
+            for (let i = 0; i < 35; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'fixed z-50 pointer-events-none text-base transition-all duration-1000';
+                petal.innerHTML = i % 2 === 0 ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-solid fa-leaf"></i>';
+                
+                const startX = window.innerWidth / 2;
+                const startY = window.innerHeight / 2;
+                
+                petal.style.left = `${startX}px`;
+                petal.style.top = `${startY}px`;
+                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
+                petal.style.transform = `scale(${Math.random() * 1.2 + 0.8})`;
+
+                document.body.appendChild(petal);
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 220 + 60;
+                const destX = startX + Math.cos(angle) * distance;
+                const destY = startY + Math.sin(angle) * distance - 60;
+
+                requestAnimationFrame(() => {
+                    petal.style.transform = `translate(${destX - startX}px, ${destY - startY}px) scale(0) rotate(${Math.random() * 360}deg)`;
+                    petal.style.opacity = '0';
+                });
+
+                setTimeout(() => petal.remove(), 1200);
+            }
+        }
+
+        window.onload = function() {
+            animateWind();
+        };
+
+        const youtubeApiScript = document.createElement('script');
+        youtubeApiScript.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(youtubeApiScript);
+    </script>
+</body>
+</html>
